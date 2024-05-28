@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-  /*  public function up(): void
+    public function up(): void
     {
         Schema::table('projects', function (Blueprint $table) {
             $table->unsignedBigInteger('type_id')->nullable()->after('id');
@@ -20,11 +20,13 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
- /*   public function down(): void
+    public function down(): void
     {
         Schema::table('projects', function (Blueprint $table) {
             $table->dropForeign(['type_id']);
             $table->dropColumn('type_id');
         });
-    }*/
+    }
 };
+
+
