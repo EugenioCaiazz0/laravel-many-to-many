@@ -7,10 +7,11 @@
 
         <h1>{{ $project->title }}</h1>
         <p>{{ $project->description }}</p>
-        <span>{{ $project->date_of_creation }}</span>
-        <span>{{ $project->author }}</span>
+        <p>{{ $project->author }}</p>
+        <p>{{ $project->date_of_creation }}</p>
 
-        <a href="{{ route('admin.index') }}">Back to projects</a>
+
+        <a href="{{ route('admin.projects.index') }}">Back to projects</a>
     </div>
 
 @endsection

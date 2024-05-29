@@ -23,7 +23,7 @@
             <td> {{$project->date_of_creation}} </td>
             <td> {{$project->description}} </td>
             <td>
-                <a href="" class="btn btn-success "> <i class="fa-solid fa-eye"></i> </a>
+                <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-success "> <i class="fa-solid fa-eye"></i> </a>
                 <a href="" class="btn btn-warning "> <i class="fa-solid fa-pencil"></i> </a>
                 <a href="" class="btn btn-danger "> <i class="fa-solid fa-trash"></i> </a>
             </td>
