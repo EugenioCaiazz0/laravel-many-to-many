@@ -35,14 +35,19 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:100',
-            'description' => 'nullable',
-            'date_of_creation' => 'required|date',
-            'author' => 'required',
-        ]);
+        $form_data = $request->all();
+            $new_project = new Project();
+            $new_project-> title = $form_data['title'];
+            $new_project-> slug = Helper::generateSlug($new_project->title, new Project());
+            $new_project-> description = $form_data['description'];
+            $new_project-> date_of_creation = $form_data['date_of_creation'];
+            $new_project-> author = $form_data['author'];
 
-        $exists = Project::where('title', $request->title)->first();
+            $new_project->save();
+
+            return redirect()->route('admin.projects.index');
+
+       /* $exists = Project::where('title', $request->title)->first();
         if ($exists) {
             return redirect()->route('admin.projects.index')->with('error', 'Project already exists');
         }
@@ -50,7 +55,7 @@ class ProjectController extends Controller
         $projectData = $request->except('_token');
         Project::create($projectData);
 
-        return redirect()->route('admin.projects.index')->with('success', 'Project created successfully');
+        return redirect()->route('admin.projects.index')->with('success', 'Project created successfully'); */
 
     }
 
